@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+node_modules/
+package-lock.json
+**/node_modules/
+**/venv/
+**/__pycache__/
+*.pyc
+dist/
+build/

@@ -1,0 +1,19 @@
+{
+  "name": "xc-node-test",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "ts-node -r dotenv/config src/app.ts",
+    "dev": "ts-node -r dotenv/config src/app.ts"
+  },
+  "dependencies": {
+    "@xecurecode/reliability-sdk": "file:../../sdks/node_sdk",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}
