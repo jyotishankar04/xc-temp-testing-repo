@@ -6,7 +6,7 @@ on:
       commit_sha:
         description: 'Stable commit SHA to rollback to'
         required: true
-        default: 'df122c884f226b41b93dcbd46f2685dfd832cf77'
+        default: '279d2e59f702c2345c6403f384d0e2551e50429b'
 
 concurrency:
   group: xecurecode-rollback-main
