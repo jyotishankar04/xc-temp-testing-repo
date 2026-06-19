@@ -1,0 +1,39 @@
+name: XecureCode Rollback - Merge Stable Commit
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: 'Stable commit SHA to rollback to'
+        required: true
+        default: '97c0aa77fa56ec0844f038e5c4ccc5cd7290fc32'
+
+concurrency:
+  group: xecurecode-rollback-main
+  cancel-in-progress: false
+
+jobs:
+  rollback:
+    name: Roll back xc-temp-testing-repo
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge stable commit
+        run: |
+          set -euo pipefail
+          git config user.name "XecureCode Bot"
+          git config user.email "bot@xecurecode.in"
+          git fetch origin main
+          git checkout main
+          git merge ${{ github.event.inputs.commit_sha }} --no-ff -m "XecureCode rollback to ${{ github.event.inputs.commit_sha }}"
+          git push origin main
