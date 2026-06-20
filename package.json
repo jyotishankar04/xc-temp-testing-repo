@@ -1,15 +1,11 @@
 {
-  "name": "xc-scenario-runner",
-  "version": "1.0.0",
+  "name": "xc-temp",
   "private": true,
+  "type": "module",
   "scripts": {
-    "run": "ts-node scenario-runner.ts",
-    "all": "ts-node scenario-runner.ts all",
-    "climb": "ts-node scenario-runner.ts severity-climb db-pool"
+    "test:node": "node test-node.mjs"
   },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.0.0"
+  "dependencies": {
+    "@xecurecode/reliability-sdk": "file:/home/devsuvam/Desktop/sdks/node_sdk"
   }
 }
